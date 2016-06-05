@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClusterManagerTests", "Clus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSpecExtensionRunner", "MSpecExtensionRunner\MSpecExtensionRunner.csproj", "{50430D17-4B44-4C6A-916A-34DFBF600A72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionForVS", "ExtensionForVS\ExtensionForVS.csproj", "{DBEE512B-8A95-426A-8497-0AEFE16D26AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{50430D17-4B44-4C6A-916A-34DFBF600A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50430D17-4B44-4C6A-916A-34DFBF600A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50430D17-4B44-4C6A-916A-34DFBF600A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBEE512B-8A95-426A-8497-0AEFE16D26AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBEE512B-8A95-426A-8497-0AEFE16D26AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBEE512B-8A95-426A-8497-0AEFE16D26AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBEE512B-8A95-426A-8497-0AEFE16D26AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
