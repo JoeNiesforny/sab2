@@ -73,25 +73,35 @@ namespace ExtensionForVS
                 ITextSnapshotLine line = snapshot.GetLineFromLineNumber(i);
 
                 IClassificationType type = null;
-                string text = line.Snapshot.GetText(new SnapshotSpan(line.Start, line.Length)); 
+                string text = line.Snapshot.GetText(new SnapshotSpan(line.Start, line.Length));
+                int index = 0;
+                SnapshotPoint startPoint = new SnapshotPoint();
+                SnapshotPoint endPoint = new SnapshotPoint();
 
-                foreach (var goodWord in _goodWordList)
-                    if (text.Contains(goodWord))
-                    {
-                        type = _classificationTypeRegistry.GetClassificationType("findWords.GoodWords");
-                        break;
-                    }
-
-                if (type == null)
-                    foreach (var badword in _badWordList)
-                        if (text.Contains(badword))
+                while (index >= 0)
+                {
+                    foreach (var goodWord in _goodWordList)
+                        if ((index = text.IndexOf(goodWord)) >= 0)
                         {
-                            type = _classificationTypeRegistry.GetClassificationType("findWords.BadWords");
+                            startPoint = new SnapshotPoint(snapshot, index + line.Start);
+                            endPoint = new SnapshotPoint(snapshot, index + line.Start + goodWord.Length);
+                            type = _classificationTypeRegistry.GetClassificationType("findWords.GoodWords");
                             break;
                         }
 
-                if (type != null)
-                    spans.Add(new ClassificationSpan(line.Extent, type));
+                    if (type == null)
+                        foreach (var badword in _badWordList)
+                            if ((index = text.IndexOf(badword)) >= 0)
+                            {
+                                startPoint = new SnapshotPoint(snapshot, index + line.Start);
+                                endPoint = new SnapshotPoint(snapshot, index + line.Start + badword.Length);
+                                type = _classificationTypeRegistry.GetClassificationType("findWords.BadWords");
+                                break;
+                            }
+
+                    if (type != null)
+                        spans.Add(new ClassificationSpan(new SnapshotSpan(startPoint, endPoint), type));
+                }
             }
 
             return spans;
