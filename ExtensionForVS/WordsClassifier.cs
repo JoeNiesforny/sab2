@@ -15,13 +15,13 @@ namespace ExtensionForVS
     {
         private readonly List<string> _goodWordList = new List<string>()
         {
-            "var",
+            "work",
             "core",
-            "class",
-            "string",
-            "static",
-            "int",
-            "byte"
+            "great",
+            "super",
+            "smash",
+            "fix",
+            "fixing"
         };
 
 
@@ -38,7 +38,8 @@ namespace ExtensionForVS
             "shit",
             "//",
             "/*",
-            "*/"
+            "*/",
+            "workaround"
         };
 
         private readonly IClassificationTypeRegistryService _classificationTypeRegistry;
@@ -73,7 +74,7 @@ namespace ExtensionForVS
                 ITextSnapshotLine line = snapshot.GetLineFromLineNumber(i);
 
                 IClassificationType type = null;
-                string text = line.Snapshot.GetText(new SnapshotSpan(line.Start, line.Length));
+                string text = line.Snapshot.GetText(new SnapshotSpan(line.Start, line.Length)).ToLower();
                 int index = 0;
                 SnapshotPoint startPoint = new SnapshotPoint();
                 SnapshotPoint endPoint = new SnapshotPoint();
