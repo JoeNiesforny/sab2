@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>myClusterManager</id>
+    <version>1.0.0</version>
+    <authors>Joe</authors>
+    <owners>Joe</owners>
+    <licenseUrl>https://github.com/JoeNiesforny/sab2/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/JoeNiesforny/sab2</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Some example project</description>
+    <releaseNotes>version 1.0 - the best one </releaseNotes>
+    <copyright>Joe TM Copyright 2016</copyright>
+    <tags>student, project, badword, vsextension, cluster</tags>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>
